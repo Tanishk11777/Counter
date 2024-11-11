@@ -4,13 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Word Frequency Analyzer</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; margin-top: 20px; }
-        table { width: 50%; margin: 20px auto; border-collapse: collapse; }
-        th, td { border: 1px solid #ddd; padding: 8px; }
-        th { background-color: #4CAF50; color: white; }
-        input[type="url"], button { padding: 8px; font-size: 16px; }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -28,36 +22,7 @@
         <tbody></tbody>
     </table>
 
-    <script>
-        async function fetchWordFrequencies() {
-            const url = document.getElementById("urlInput").value;
-            if (!url) {
-                alert("Please enter a valid URL.");
-                return;
-            }
-
-            const response = await fetch("http://localhost:5000/analyze", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ url })
-            });
-
-            if (response.ok) {
-                const data = await response.json();
-                const tableBody = document.getElementById("resultTable").querySelector("tbody");
-                tableBody.innerHTML = "";
-
-                data.forEach(({ word, frequency }) => {
-                    const row = `<tr><td>${word}</td><td>${frequency}</td></tr>`;
-                    tableBody.innerHTML += row;
-                });
-
-                document.getElementById("resultTable").style.display = "table";
-            } else {
-                alert("Failed to fetch word frequencies. Please try again.");
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 
 </body>
 </html>
