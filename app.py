@@ -6,7 +6,7 @@ import requests
 import re
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+CORS(app)
 
 @app.route('/analyze', methods=['POST'])
 def analyze():
