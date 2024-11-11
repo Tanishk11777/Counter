@@ -19,7 +19,8 @@ async function fetchWordFrequencies() {
         data.forEach(({ word, frequency }) => {
             const row = `<tr><td>${word}</td><td>${frequency}</td></tr>`;
             tableBody.innerHTML += row;
-        });
+        }
+    );
 
         document.getElementById("resultTable").style.display = "table";
     } else {
